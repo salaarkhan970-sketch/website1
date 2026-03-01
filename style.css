@@ -1,0 +1,240 @@
+:root {
+    --bg-color: #ffffff;
+    --text-main: #000000;
+    --text-muted: #555555;
+    --accent-1: #ff0000;
+    /* Red for love */
+    --accent-2: #ff0000;
+    /* Red for truth */
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --card-border: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Gradients */
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 33.33L18.42 31.89C12.83 26.83 9 23.36 9 19.05C9 15.58 11.75 12.83 15.22 12.83C17.18 12.83 19.05 13.73 20 15.14C20.95 13.73 22.82 12.83 24.78 12.83C28.25 12.83 31 15.58 31 19.05C31 23.36 27.17 26.83 21.58 31.89L20 33.33Z" fill="%23ffcccc" opacity="0.6"/></svg>');
+    background-size: 60px 60px;
+}
+
+header {
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--card-border);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+.filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn.active {
+    background: var(--text-main);
+    color: var(--bg-color);
+    font-weight: 500;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5%;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: var(--accent-1);
+    display: inline-block;
+}
+
+.quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.quote-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s forwards;
+    position: relative;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.quote-icon {
+    font-size: 1.5rem;
+    color: var(--accent-1);
+}
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    font-style: italic;
+}
+
+.quote-author {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0.5rem;
+}
+
+.copy-btn:hover {
+    color: var(--text-main);
+}
+
+.tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+}
+
+.tag.love {
+    color: var(--accent-1);
+    border: 1px solid var(--accent-1);
+}
+
+.tag.truth {
+    color: var(--accent-2);
+    border: 1px solid var(--accent-2);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--card-border);
+    margin-top: 4rem;
+}
+
+footer i {
+    color: var(--accent-1);
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .filters {
+        justify-content: center;
+    }
+}
